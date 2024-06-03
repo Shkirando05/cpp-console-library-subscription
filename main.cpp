@@ -10,24 +10,24 @@ using namespace std;
 #include "processing.h"
 
 void output(conference_programm* lecture) {
-    /********** ����� ������� **********/
-    cout << "�����....: ";
-    // ����� ������� ������
+    /**********   **********/
+    cout << "....: ";
+    //   
     cout << setw(2) << setfill('0') << lecture->start.hour << ':';
     cout << setw(2) << setfill('0') << lecture->start.minute << " - ";
-    // ����� ������� �����
+    //   
     cout << setw(2) << setfill('0') << lecture->finish.hour << ':';
     cout << setw(2) << setfill('0') << lecture->finish.minute << '\n';
-    /********** ����� ������� **********/
-    cout << "������...: ";
-    // ����� ������� 
+    /**********   **********/
+    cout << "...: ";
+    //   
     cout << lecture->author.last_name << " ";
-    // ����� ������ ����� ����� ������
+    //     
     cout << lecture->author.first_name[0] << ". ";
-    // ����� ������ ����� �������� ������
+    //     
     cout << lecture->author.middle_name[0] << ".\n";
-    /********** ����� ���� **********/
-    cout << "����.....: ";
+    /**********   **********/
+    cout << ".....: ";
     cout << lecture->title << '\n';
     cout << "\n";
 }
@@ -35,10 +35,10 @@ void output(conference_programm* lecture) {
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    cout << "������������ ������ #4. GIT\n";
-    cout << "������� #2. ��������� �����������\n";
-    cout << "�����: Ivan Grechko\n\n";
-    cout << "������: 23��1�\n";
+    cout << " #4. GIT\n";
+    cout << " #2. \n";
+    cout << ": \n\n";
+    cout << ": \n";
 
     conference_programm* lectures[MAX_FILE_ROWS_COUNT];
     int size;
@@ -49,10 +49,10 @@ int main()
 
         bool (*compare_function)(conference_programm*, conference_programm*) = NULL;
         
-        cout << "�������� �������� ���������� ������:\n";
-        cout << "1) �� �������� ������������ �������\n";
-        cout << "2) �� ����������� ������� ������ �������, � � ������ ������ ������ �� ����������� ���� �������\n";
-        cout << "\n������� ����� ���������� ������: ";
+        cout << ":\n";
+        cout << "1) \n";
+        cout << "2) \n";
+        cout << "\n: ";
         int item;
         cin >> item;
         cout << '\n';
@@ -66,13 +66,13 @@ int main()
             compare_function = compare_by_author_last_name;
             break;
         default:
-            throw "������������ ����� ������";
+            throw "";
         }
 
-        cout << "�������� ������ ���������� ������:\n";
-        cout << "1) ���������� ��������\n";
-        cout << "2) ������������� ����������\n";
-        cout << "\n������� ����� ���������� ������: ";
+        cout << ":\n";
+        cout << "1) \n";
+        cout << "2) \n";
+        cout << "\n: ";
         cin >> item;
         cout << '\n';
 
@@ -85,11 +85,11 @@ int main()
             heap_sort(lectures, size, compare_function);
             break;
         default:
-            throw "������������ ����� ������";
+            throw "";
         }
         
 
-        cout << "***** ��������� ����������� *****\n\n";
+        cout << "*****  *****\n\n";
         for (int i = 0; i < size; i++)
         {
             output(lectures[i]);
@@ -97,25 +97,24 @@ int main()
 
         bool (*check_function)(conference_programm*) = NULL;
 
-        cout << "\n�������� ������ ���������� ��� ��������� ������:\n";
-        cout << "1) ������� ������� ����� ���������\n";
-        cout << "2) ������� ������������� ����� 15 �����\n";
-        cout << "\n������� ����� ���������� ������: ";
+        cout << "\n:\n";
+        cout << "1) \n";
+        cout << "2)  15 \n";
+        cout << "\n: ";
         cin >> item;
         cout << '\n';
 
         switch (item)
         {
         case 1:
-            check_function = check_conference_programm_by_name; // ����������� � ��������� �� ������� ��������������� �������
-            cout << "***** ������� ������� ����� ��������� *****\n\n";
+            check_function = check_conference_programm_by_name; // 
+            cout << "*****  *****\n\n";
             break;
         case 2:
-            check_function = check_conference_programm_by_duration; // ����������� � ��������� �� ������� ��������������� �������
-            cout << "***** ������� ������������� ����� 15 ����� *****\n\n";
+            check_function = check_conference_programm_by_duration; // 
             break;
         default:
-            throw "������������ ����� ������";
+            throw "";
         }
 
         if (check_function)

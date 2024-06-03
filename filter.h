@@ -1,4 +1,5 @@
 #include "conference_programm.h"
+#include "processing.h"
 
 #ifndef FILTER_H
 #define FILTER_H
