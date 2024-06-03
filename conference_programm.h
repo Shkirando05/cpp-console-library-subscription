@@ -16,7 +16,7 @@ struct person
     char last_name[MAX_STRING_SIZE];
 };
 
-struct book_subscription
+struct conference_programm
 {
     Time start;
     Time finish;
